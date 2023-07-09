@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily</title>
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
+    <link rel="stylesheet" href="Daily_eunseo.css">
+    <script src="https://kit.fontawesome.com/1ae82cd2be.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="backCalendar">
+                <a href="calendar.html">
+                    <i class="fa-regular fa-calendar-days fa-2xl"></i>
+                </a>
+            </div>
+            <div class="title">
+                <h1>Today</h1>
+            </div>
+        </header>
+        <div class="content">
+            <button id="emojiBtn">Emotion</button>
+            <textarea name="daily" id="daily" cols="35" rows="2"></textarea>
+        </div>
+    </div>
+
+    <script>
+        const button = document.querySelector('#emojiBtn');
+        const picker = new EmojiButton({
+            position: 'bottom-start'
+        });
+
+        button.addEventListener('click', () => {
+            picker.togglePicker(button);
+        });
+        
+        picker.on('emoji', emoji => {
+            const text_box = document.querySelector('#daily');
+            text_box.value += emoji;
+        })
+    </script>
+</body>
+</html>
